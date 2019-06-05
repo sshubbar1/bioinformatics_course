@@ -1,0 +1,107 @@
+---
+title: "RStudio Advanced Bioinformatics 2019 Assessment"
+author: '9519'
+date: "05/06/2019"
+output: 
+   html_document:
+     keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+## Task 1
+```{r, comment=NA}
+sum(5:55)
+```
+
+
+## Task 2
+```{r, comment=NA}
+sumfun <- function(n) {sum(5:n)}
+sumfun(10)
+sumfun(20)
+sumfun(100)
+```
+
+
+## Task 3
+```{r, comment=NA}
+Fibonacci <-numeric(12)
+Fibonacci[1] <- Fibonacci[2] <- 1
+for(i in 3:12) {Fibonacci[i] <- Fibonacci[i-2] + Fibonacci[i-1]}
+print(Fibonacci)
+```
+
+
+## Task 4
+```{r, comment=NA}
+library(ggplot2)
+data <- mtcars
+data$gear <- as.factor(data$gear)
+ggplot(mtcars, aes(x = factor(gear), y = mpg, fill=gear)) + geom_boxplot()
+```
+
+
+## Task 5
+```{r, comment=NA}
+distance <- lm(formula = dist ~ speed, data =cars)
+summary(distance)
+```
+Answers for task 5:
+
+Fitted slope is 3.9324
+
+Intercept of the line is -17.5791
+
+Standard deviation for distance is 6.7584 and 
+
+Standard deviation for speed is 0.4155
+
+
+## Task 6
+```{r, comment=NA}
+ggplot(cars, aes(x=speed, y=dist)) + 
+geom_point(color='#7F0000', size = 2) + xlim(c(0, 25)) + 
+geom_smooth(method=lm, se=FALSE, fullrange=TRUE, color='#2C3E50') + 
+labs(title='Linear Relationship between speed and breaking distance', x='Speed (mph)', y='Breaking Distance (ft)')
+```
+
+
+## Task 7
+```{r, comment=NA}
+library(ggplot2)
+data("cars")
+car_speed <- cars$speed + (5280/3600)
+lm_l <- lm(dist ~  0 + car_speed + I(car_speed^2), cars)
+summary(lm_l) 
+
+y <- cars$dist
+x <- cars$car_speed
+ggplot(cars, aes(car_speed, dist)) + geom_point() + geom_smooth(method='lm', formula="y~0+x+I(x^2)") + labs(title = "The average reaction time for driver to start breaking", x="Car Speed in seconds", y="Distance (ft)")
+```
+The formula: y~0+x+I(x^2) gives a linear graph model but it also provides the line with the best fit of the line (due to the 0 added in the formula).
+
+Answer task 7: According to the results given, the slop of the graph is 0.78282 (car_speed). It is relatively close to 1.0 and is therefore a reasonable time for the driver to start breaking his car.
