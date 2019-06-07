@@ -101,7 +101,7 @@ data$gear <- as.factor(data$gear)
 ggplot(mtcars, aes(x = factor(gear), y = mpg, fill=gear)) + geom_boxplot()
 ```
 
-![](https://github.com/sshubbar1/bioinformatics_course/blob/master/RStudio_Advanced_Bioinformatics_2019_assessment_9519.md/unnamed-chunk-4-1.png)
+![](https://github.com/sshubbar1/bioinformatics_course/blob/master/unnamed-chunk-4-1.png)
 
 
 ## Task 5
@@ -151,7 +151,7 @@ geom_smooth(method=lm, se=FALSE, fullrange=TRUE, color='#2C3E50') +
 labs(title='Linear Relationship between speed and breaking distance', x='Speed (mph)', y='Breaking Distance (ft)')
 ```
 
-![](https://github.com/sshubbar1/bioinformatics_course/blob/master/RStudio_Advanced_Bioinformatics_2019_assessment_9519.md/unnamed-chunk-6-1.png)
+![](https://github.com/sshubbar1/bioinformatics_course/blob/master/unnamed-chunk-6-1.png)
 
 
 ## Task 7
@@ -191,7 +191,7 @@ x <- cars$car_speed
 ggplot(cars, aes(car_speed, dist)) + geom_point() + geom_smooth(method='lm', formula="y~0+x+I(x^2)") + labs(title = "The average reaction time for driver to start breaking", x="Car Speed in seconds", y="Distance (ft)")
 ```
 
-![](https://github.com/sshubbar1/bioinformatics_course/blob/master/RStudio_Advanced_Bioinformatics_2019_assessment_9519.md/unnamed-chunk-7-1.png)
+![](https://github.com/sshubbar1/bioinformatics_course/blob/master/unnamed-chunk-7-1.png)
 The formula: y~0+x+I(x^2) gives a linear graph model but it also provides the line with the best fit of the line (due to the 0 added in the formula).
 
 Answer task 7: According to the results given, the slop of the graph is 0.78282 (car_speed). It is relatively close to 1.0 and is therefore a reasonable time for the driver to start breaking his car.
