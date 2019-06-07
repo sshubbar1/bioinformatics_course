@@ -101,7 +101,7 @@ data$gear <- as.factor(data$gear)
 ggplot(mtcars, aes(x = factor(gear), y = mpg, fill=gear)) + geom_boxplot()
 ```
 
-![](https://github.com/sshubbar1/bioinformatics_course/blob/master/RStudio_Advanced_Bioinformatics_2019_assessment_9519_graph_for Task_4.png)
+![](https://github.com/sshubbar1/bioinformatics_course/blob/master/RStudio_Advanced_Bioinformatics_2019_assessment_9519_graph_for_Task_4.png)
 
 
 ## Task 5
